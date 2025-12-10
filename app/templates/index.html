@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS Safety AI System</title>
+    <style>
+        /* SPACE STATION THEME */
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Consolas', 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #58a6ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 30px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
+        }
+
+        /* UPLOAD BUTTON STYLES */
+        .upload-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px dashed #30363d;
+            border-radius: 6px;
+        }
+
+        input[type="file"] {
+            color: #8b949e;
+        }
+
+        button {
+            background-color: #238636;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2ea043;
+        }
+
+        /* RESULTS DISPLAY */
+        .results-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-card {
+            flex: 1;
+            background: #0d1117;
+            padding: 10px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            min-width: 300px;
+        }
+
+        .image-card h3 {
+            color: #8b949e;
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            background: #1f6feb;
+            color: white;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🛰️ ISS Object Detection Module</h1>
+        <br>
+        <span class="status-badge">SYSTEM ONLINE</span>
+        <p>Upload a module interior image to scan for safety equipment.</p>
+
+        <div class="upload-section">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <br>
+                <button type="submit">INITIATE SCAN</button>
+            </form>
+        </div>
+
+        {% if original %}
+        <div class="results-grid">
+            <div class="image-card">
+                <h3>RAW INPUT FEED</h3>
+                <img src="{{ url_for('static', filename='uploads/' + original) }}" alt="Original Image">
+            </div>
+
+            <div class="image-card" style="border-color: #238636;">
+                <h3 style="color: #238636;">AI DETECTION OUTPUT</h3>
+                <img src="{{ url_for('static', filename='uploads/' + result) }}" alt="Detected Image">
+            </div>
+        </div>
+        {% endif %}
+
+        <p style="margin-top: 40px; color: #484f58; font-size: 12px;">
+            POWERED BY FALCON SYNTHETIC DATA & YOLOv8
+        </p>
+    </div>
+
+</body>
+</html>
