@@ -46,26 +46,31 @@ Our model achieved high precision on the unseen test dataset:
 
 ## 📂 Project Structure
 ```text
-/Space_Station_Safety_System
+D:\ISS_Sentinel_Submission  <-- (Create this NEW Main Folder)
 │
-├── /app                    # THE BONUS WEB APP
-│   ├── app.py              # Flask Server Logic (Omraj Singh)
-│   ├── best.pt             # Trained Model Weights
+├── /app                    <-- (For Omraj & Om Vishwakarma)
+│   ├── app.py
+│   ├── best.pt             <-- (Copy this from runs/)
 │   ├── /static
-│   │   └── /uploads        # User image storage
+│   │   └── /uploads
 │   └── /templates
-│       └── index.html      # UI Interface (Om Vishwakarma/Bhumi Singh)
+│       └── index.html
 │
-├── /training               # AI TRAINING PIPELINE (Bappi Singh)
-│   ├── train.py            # Model training script
-│   ├── predict.py          # Benchmarking script
-│   ├── data.yaml           # Dataset configuration
-│   └── /runs               # Training logs & graphs
+├── /training               <-- (For Bappi)
+│   ├── train.py
+│   ├── predict.py
+│   ├── data.yaml
+│   └── /runs               <-- (Move your existing 'runs' folder here)
 │
-├── Hackathon_Report.pdf    # Full Documentation (8 Pages)
-├── App_Demo.mp4            # Video Demonstration of the App
-├── requirements.txt        # Project dependencies
-└── README.md               # Project Guide
+├── /dataset                <-- (Cleaned up data folder)
+│   ├── /train              <-- (Rename 'train2' to 'train')
+│   ├── /val                <-- (Rename 'val2' to 'val')
+│
+├── README.md               <-- (The guide I gave you)
+├── Hackathon_Report.pdf    <-- (The PDF Report)
+├── App_Demo.mp4            <-- (The Bonus Video)
+└── requirements.txt        <-- (Library list)
+```
 
 Installation Steps
 
